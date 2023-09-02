@@ -29,9 +29,20 @@ jobs:
           EMAIL: ${{ vars.EMAIL }}
           URL: ${{ secrets.URL }}
         run: |
-          echo "VARIABLE -> $ALUMNO / RAMA -> $GITHUB_REF_NAME"
-          echo "VARIABLE -> $EMAIL / RAMA -> $GITHUB_REF_NAME"
-          echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $GITHUB_REF_NAME"
+          case $GITHUB_REF_NAME in
+            "dev")
+              echo "VARIABLE -> $ALUMNO / RAMA -> $GITHUB_REF_NAME"
+              ;;
+            "qa")
+              echo "VARIABLE -> $EMAIL / RAMA -> $GITHUB_REF_NAME"
+              ;;
+            "main")
+              echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $GITHUB_REF_NAME"
+              ;;
+          esac
+        #echo "VARIABLE -> $ALUMNO / RAMA -> $GITHUB_REF_NAME"
+        #echo "VARIABLE -> $EMAIL / RAMA -> $GITHUB_REF_NAME"
+        #echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $GITHUB_REF_NAME"
        # - if: $GITHUB_REF_NAME == 'dev'
         #  run: echo "VARIABLE -> $ALUMNO / RAMA -> $GITHUB_REF_NAME"
         #- if: $GITHUB_REF_NAME == 'qa'
