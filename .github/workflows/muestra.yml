@@ -28,13 +28,16 @@ jobs:
           ALUMNO: ${{ vars.ALUMNO }}
           EMAIL: ${{ vars.EMAIL }}
           URL: ${{ secrets.URL }}
-    
-        - if: $GITHUB_REF_NAME == 'dev'
-          run: echo "VARIABLE -> $ALUMNO / RAMA -> $GITHUB_REF_NAME"
-        - if: $GITHUB_REF_NAME == 'qa'
-          run: echo "VARIABLE -> $EMAIL / RAMA -> $GITHUB_REF_NAME"
-        - if: $RAMA == 'main'
-          run: echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $GITHUB_REF_NAME"
+        run: |
+          echo "VARIABLE -> $ALUMNO / RAMA -> $GITHUB_REF_NAME"
+          echo "VARIABLE -> $EMAIL / RAMA -> $GITHUB_REF_NAME"
+          echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $GITHUB_REF_NAME"
+       # - if: $GITHUB_REF_NAME == 'dev'
+        #  run: echo "VARIABLE -> $ALUMNO / RAMA -> $GITHUB_REF_NAME"
+        #- if: $GITHUB_REF_NAME == 'qa'
+        #  run: echo "VARIABLE -> $EMAIL / RAMA -> $GITHUB_REF_NAME"
+        #- if: $RAMA == 'main'
+         # run: echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $GITHUB_REF_NAME"
 #name: SonarCloud analysis
 #on:
   # Trigger analysis when pushing in master or pull requests, and when creating
