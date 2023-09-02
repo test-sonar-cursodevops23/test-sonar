@@ -22,11 +22,6 @@ jobs:
     environment: curso_devops
     name: My Job
     runs-on: ubuntu-latest
-    env:
-      ALUMNO: ${{ vars.ALUMNO }}
-      EMAIL: ${{ vars.EMAIL }}
-      RAMA: $github.ref_name
-      URL: ${{ secrets.URL }}
     #steps:
       #- name: Print a greeting
         #env:
@@ -37,8 +32,13 @@ jobs:
         #run: |
           #echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
     steps:
-      #- uses: actions/checkout@v3
       - name: Uso variables
+      #- uses: actions/checkout@v3
+        env:
+          ALUMNO: ${{ vars.ALUMNO }}
+          EMAIL: ${{ vars.EMAIL }}
+          RAMA: $github.ref_name
+          URL: ${{ secrets.URL }}
         - if: $RAMA == 'dev'
           run: echo "VARIABLE -> $ALUMNO / RAMA -> $RAMA"
         - if: $RAMA == 'qa'
