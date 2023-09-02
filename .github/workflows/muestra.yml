@@ -21,9 +21,8 @@ jobs:
 
   steps:
     #- uses: actions/checkout@v3
-    steps:
-      - name: "Say Hello Mona it's Monday"
-        run: echo "Holaaa"
+    - name: "Say Hello Mona it's Monday"
+      run: echo "Holaaa"
     #- name: Uso variables
      # - if: $RAMA == 'dev'
       #  run: echo "VARIABLE -> $ALUMNO / RAMA -> $RAMA"
