@@ -2,6 +2,8 @@ name: Greeting from Mona
 
 on: push
 
+environment: curso_devops
+
 jobs:
   my-job:
     name: My Job
