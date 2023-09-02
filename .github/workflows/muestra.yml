@@ -20,7 +20,7 @@ jobs:
 
   job2:
     environment: curso_devops
-    name: My Job
+    name: JOB VARIABLES
     runs-on: ubuntu-latest
     steps:
       - name: Uso variables
@@ -30,6 +30,9 @@ jobs:
           URL: ${{ secrets.URL }}
         run: |
           echo "$GITHUB_REF_NAME"
+          echo "$ALUMNO"
+          echo "$EMAIL"
+          echo "$URL"
 
     #steps:
       
