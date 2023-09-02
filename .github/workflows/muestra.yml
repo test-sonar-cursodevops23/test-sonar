@@ -54,3 +54,4 @@ jobs:
           echo "Contenido del curl:"
           echo "$consulta"
           echo "$${{ vars.ALUMNO }}"
+          echo "$${{ vars.EMAIL }}"
