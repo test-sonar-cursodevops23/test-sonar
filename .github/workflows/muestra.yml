@@ -1,7 +1,13 @@
-name: Greeting from Mona
-
-on: push
-
+name: Muestra Var & Secretos
+on:
+  # Trigger analysis when pushing in master or pull requests, and when creating
+  # a pull request.
+  #push:
+    #branches:
+      #- main
+  pull_request:
+    types:
+      - closed
 
 jobs:
 
