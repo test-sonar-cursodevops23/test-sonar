@@ -10,7 +10,7 @@ on:
 
 jobs:
   runs-on: ubuntu-latest
-  
+
   environment: curso_devops
   
   env:
