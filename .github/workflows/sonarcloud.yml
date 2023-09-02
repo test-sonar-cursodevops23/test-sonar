@@ -2,11 +2,12 @@ name: SonarCloud analysis
 on:
   # Trigger analysis when pushing in master or pull requests, and when creating
   # a pull request.
-  push:
-    branches:
-      - main
+  #push:
+    #branches:
+      #- main
   pull_request:
-      types: [opened, synchronize, reopened]
+    types:
+      - opened
       
 jobs:
   sonarcloud:
