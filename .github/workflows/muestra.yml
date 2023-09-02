@@ -31,16 +31,17 @@ jobs:
           URL: ${{ secrets.URL }}
         run: |
           case $RAMA in
-          'dev')
-          echo "VARIABLE -> $ALUMNO / RAMA -> $RAMA"
-          ;;
-          'qa')
-          echo "VARIABLE -> $EMAIL / RAMA -> $RAMA"
-          ;;
-          'main')
-          echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $RAMA"
-          ;;
+            "dev")
+              echo "VARIABLE -> $ALUMNO / RAMA -> $RAMA"
+              ;;
+            "qa")
+              echo "VARIABLE -> $EMAIL / RAMA -> $RAMA"
+              ;;
+            "main")
+              echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $RAMA"
+              ;;
           esac
+          
     #steps:
       
       #- uses: actions/checkout@v3
