@@ -27,7 +27,7 @@ jobs:
         env:
           ALUMNO: ${{ vars.ALUMNO }}
           EMAIL: ${{ vars.EMAIL }}
-          RAMA: $github.ref_name
+          RAMA: $GITHUB_REF_NAME
           URL: ${{ secrets.URL }}
         run: |
           case $RAMA in
@@ -41,7 +41,7 @@ jobs:
               echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $RAMA"
               ;;
           esac
-          
+
     #steps:
       
       #- uses: actions/checkout@v3
