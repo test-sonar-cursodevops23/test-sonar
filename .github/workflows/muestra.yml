@@ -37,5 +37,5 @@ jobs:
         run: |
           echo "RAMA -> $GITHUB_REF_NAME"
           consulta=$(curl -s "$URL")
-          echo "Contenido de la variable 'consulta':"
+          echo "Contenido del curl:"
           echo "$consulta"
