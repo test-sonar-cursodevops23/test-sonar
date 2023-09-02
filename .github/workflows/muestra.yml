@@ -27,10 +27,10 @@ jobs:
         env:
           ALUMNO: ${{ vars.ALUMNO }}
           EMAIL: ${{ vars.EMAIL }}
-          RAMA: $github.ref_name
+          #RAMA: $github.ref_name
           URL: ${{ secrets.URL }}
         run: |
-          echo "$RAMA"
+          echo "$GITHUB_REF_NAME"
 
     #steps:
       
