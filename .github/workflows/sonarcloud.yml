@@ -6,8 +6,7 @@ on:
     #branches:
       #- main
   pull_request:
-    types:
-      - opened
+    types: [opened]
       
 jobs:
   sonarcloud:
