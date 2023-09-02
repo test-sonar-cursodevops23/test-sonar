@@ -30,8 +30,8 @@ jobs:
       - if: $RAMA == 'main'
         run: echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $RAMA"
             
-    - name: Uso de secreto
-      run: |
-          echo "RAMA -> $RAMA"
-          consulta=$(curl -s "$URL")
-          echo "$consulta"
+    #- name: Uso de secreto
+     # run: |
+      #    echo "RAMA -> $RAMA"
+       #   consulta=$(curl -s "$URL")
+        #  echo "$consulta"
