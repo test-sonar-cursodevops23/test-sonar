@@ -8,7 +8,7 @@ on:
   pull_request:
       types: [opened, synchronize, reopened]
 
-jobs
+jobs:
   runs-on: ubuntu-latest
   environment: curso_devops
   
@@ -30,7 +30,7 @@ jobs
     run: echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $RAMA"
           
   - name: Uso de secreto
- run: |
-    echo "RAMA -> $RAMA"
-    consulta=$(curl -s "$URL")
-    echo "$consulta"
+    run: |
+        echo "RAMA -> $RAMA"
+        consulta=$(curl -s "$URL")
+        echo "$consulta"
