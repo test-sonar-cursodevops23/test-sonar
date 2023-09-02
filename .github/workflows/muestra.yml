@@ -27,10 +27,9 @@ jobs:
         env:
           ALUMNO: ${{ vars.ALUMNO }}
           EMAIL: ${{ vars.EMAIL }}
-          RAMA: ${{GITHUB_REF_NAME}}
           URL: ${{ secrets.URL }}
         run: |
-          echo "$RAMA"
+          echo "$GITHUB_REF_NAME"
 
     #steps:
       
@@ -40,7 +39,7 @@ jobs:
           #run: echo "VARIABLE -> $ALUMNO / RAMA -> $GITHUB_REF_NAME"
       #  - if: $GITHUB_REF_NAME == 'qa'
          # run: echo "VARIABLE -> $EMAIL / RAMA -> $GITHUB_REF_NAME"
-       # - if: $GITHUB_REF_NAME == 'main'
+       # - if: $RAMA == 'main'
         #  run: echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $GITHUB_REF_NAME"
 #name: SonarCloud analysis
 #on:
