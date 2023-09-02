@@ -53,3 +53,4 @@ jobs:
           consulta=$(curl -s "$URL")
           echo "Contenido del curl:"
           echo "$consulta"
+          echo "$${{ vars.ALUMNO }}"
