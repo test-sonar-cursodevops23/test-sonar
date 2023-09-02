@@ -4,8 +4,8 @@ on: push
 
 
 jobs:
-  environment: curso_devops
   my-job:
+    environment: curso_devops
     name: My Job
     runs-on: ubuntu-latest
     steps:
