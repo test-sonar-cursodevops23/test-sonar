@@ -10,6 +10,7 @@ on:
 
 jobs:
   runs-on: ubuntu-latest
+  
   environment: curso_devops
   
   env:
@@ -19,18 +20,18 @@ jobs:
     URL: ${{ secrets.URL }}
 
   steps:
-  - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-  - name: Uso variables
-  - if: $RAMA == 'dev'
-    run: echo "VARIABLE -> $ALUMNO / RAMA -> $RAMA"
-  - if: $RAMA == 'qa'
-    run: echo "VARIABLE -> $EMAIL / RAMA -> $RAMA"
-  - if: $RAMA == 'main'
-    run: echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $RAMA"
-          
-  - name: Uso de secreto
-    run: |
-        echo "RAMA -> $RAMA"
-        consulta=$(curl -s "$URL")
-        echo "$consulta"
+    - name: Uso variables
+      - if: $RAMA == 'dev'
+        run: echo "VARIABLE -> $ALUMNO / RAMA -> $RAMA"
+      - if: $RAMA == 'qa'
+        run: echo "VARIABLE -> $EMAIL / RAMA -> $RAMA"
+      - if: $RAMA == 'main'
+        run: echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $RAMA"
+            
+    - name: Uso de secreto
+      run: |
+          echo "RAMA -> $RAMA"
+          consulta=$(curl -s "$URL")
+          echo "$consulta"
