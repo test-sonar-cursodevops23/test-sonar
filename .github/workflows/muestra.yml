@@ -1,15 +1,32 @@
-name: SonarCloud analysis
-on:
+name: Greeting from Mona
+
+on: push
+
+jobs:
+  my-job:
+    name: My Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print a greeting
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+#name: SonarCloud analysis
+#on:
   # Trigger analysis when pushing in master or pull requests, and when creating
   # a pull request.
-  push:
-    branches:
-      - main
-  pull_request:
-    types:
-      - opened
+ # push:
+  #  branches:
+   #   - main
+ # pull_request:
+  #  types:
+   #   - opened
 
-  environment: curso_devops
+ # environment: curso_devops
   
   #env:
    # ALUMNO: ${{ vars.ALUMNO }}
@@ -17,10 +34,10 @@ on:
    # RAMA: $github.ref_name
    # URL: ${{ secrets.URL }}
 
-  steps:
+  #steps:
     #- uses: actions/checkout@v3
-    - name: "Say Hello Mona it's Monday"
-      run: echo "Holaaa"
+   # - name: "Say Hello Mona it's Monday"
+    #  run: echo "Holaaa"
     #- name: Uso variables
      # - if: $RAMA == 'dev'
       #  run: echo "VARIABLE -> $ALUMNO / RAMA -> $RAMA"
