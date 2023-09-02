@@ -7,9 +7,13 @@ name: Muestra Var & Secretos
       #- main
 on:
   push:
-  pull_request:
-    types:
-      - closed
+    branches:
+      -"main"
+      -"dev"
+      -"qa"
+ # pull_request:
+  #  types:
+   #   - closed
 
 
 jobs:
@@ -35,6 +39,7 @@ jobs:
               echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $GITHUB_REF_NAME"
               ;;
           esac
+
   job2:
     environment: curso_devops
     name: JOB URL
