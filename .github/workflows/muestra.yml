@@ -6,6 +6,7 @@ name: Muestra Var & Secretos
     #branches:
       #- main
 on:
+  push
   pull_request:
     types:
       - closed
