@@ -8,9 +8,10 @@ name: Muestra Var & Secretos
 on:
   push:
     branches:
-      -"main"
-      -"dev"
-      -"qa"
+      - dev
+      - qa
+      - main
+
  # pull_request:
   #  types:
    #   - closed
