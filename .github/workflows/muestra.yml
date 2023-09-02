@@ -4,21 +4,8 @@ on: push
 
 
 jobs:
-  job1:
-    environment: curso_devops
-    name: My Job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print a greeting
-        env:
-          MY_VAR: Hi there! My name is
-          FIRST_NAME: Mona
-          MIDDLE_NAME: The
-          LAST_NAME: Octocat
-        run: |
-          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 
-  job2:
+  job1:
     environment: curso_devops
     name: JOB VARIABLES
     runs-on: ubuntu-latest
@@ -27,7 +14,6 @@ jobs:
         env:
           ALUMNO: ${{ vars.ALUMNO }}
           EMAIL: ${{ vars.EMAIL }}
-          URL: ${{ secrets.URL }}
         run: |
           case $GITHUB_REF_NAME in
             "dev")
@@ -40,47 +26,16 @@ jobs:
               echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $GITHUB_REF_NAME"
               ;;
           esac
-        #echo "VARIABLE -> $ALUMNO / RAMA -> $GITHUB_REF_NAME"
-        #echo "VARIABLE -> $EMAIL / RAMA -> $GITHUB_REF_NAME"
-        #echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $GITHUB_REF_NAME"
-       # - if: $GITHUB_REF_NAME == 'dev'
-        #  run: echo "VARIABLE -> $ALUMNO / RAMA -> $GITHUB_REF_NAME"
-        #- if: $GITHUB_REF_NAME == 'qa'
-        #  run: echo "VARIABLE -> $EMAIL / RAMA -> $GITHUB_REF_NAME"
-        #- if: $RAMA == 'main'
-         # run: echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $GITHUB_REF_NAME"
-#name: SonarCloud analysis
-#on:
-  # Trigger analysis when pushing in master or pull requests, and when creating
-  # a pull request.
- # push:
-  #  branches:
-   #   - main
- # pull_request:
-  #  types:
-   #   - opened
-
- # environment: curso_devops
-  
-  #env:
-   # ALUMNO: ${{ vars.ALUMNO }}
-    #EMAIL: ${{ vars.EMAIL }}
-   # RAMA: $github.ref_name
-   # URL: ${{ secrets.URL }}
-
-  #steps:
-    #- uses: actions/checkout@v3
-    
-    #- name: Uso variables
-     # - if: $RAMA == 'dev'
-      #  run: echo "VARIABLE -> $ALUMNO / RAMA -> $RAMA"
-      #- if: $RAMA == 'qa'
-       # run: echo "VARIABLE -> $EMAIL / RAMA -> $RAMA"
-      #- if: $RAMA == 'main'
-       # run: echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $RAMA"
-            
-    #- name: Uso de secreto
-     # run: |
-      #    echo "RAMA -> $RAMA"
-       #   consulta=$(curl -s "$URL")
-        #  echo "$consulta"
+  job2:
+    environment: curso_devops
+    name: JOB URL
+    runs-on: ubuntu-latest
+    steps:
+      - name: Uso URL
+        env:
+          URL: ${{ secrets.URL }}
+        run: |
+          echo "RAMA -> $GITHUB_REF_NAME"
+          consulta=$(curl -s "$URL")
+          echo "Contenido de la variable 'consulta':"
+          echo "$consulta"
