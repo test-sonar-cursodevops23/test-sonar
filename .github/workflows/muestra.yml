@@ -1,0 +1,55 @@
+name: Muestra Var & Secretos
+#on: push
+  # Trigger analysis when pushing in master or pull requests, and when creating
+  # a pull request.
+  #push:
+    #branches:
+      #- main
+on:
+  push:
+    branches:
+      -"main"
+      -"dev"
+      -"qa"
+ # pull_request:
+  #  types:
+   #   - closed
+
+
+jobs:
+
+  job1:
+    environment: curso_devops
+    name: JOB VARIABLES
+    runs-on: ubuntu-latest
+    steps:
+      - name: Uso variables
+        env:
+          ALUMNO: ${{ vars.ALUMNO }}
+          EMAIL: ${{ vars.EMAIL }}
+        run: |
+          case $GITHUB_REF_NAME in
+            "dev")
+              echo "VARIABLE -> $ALUMNO / RAMA -> $GITHUB_REF_NAME"
+              ;;
+            "qa")
+              echo "VARIABLE -> $EMAIL / RAMA -> $GITHUB_REF_NAME"
+              ;;
+            "main")
+              echo "VARIABLES -> $ALUMNO & $EMAIL / RAMA -> $GITHUB_REF_NAME"
+              ;;
+          esac
+
+  job2:
+    environment: curso_devops
+    name: JOB URL
+    runs-on: ubuntu-latest
+    steps:
+      - name: Uso URL
+        env:
+          URL: ${{ secrets.URL }}
+        run: |
+          echo "RAMA -> $GITHUB_REF_NAME"
+          consulta=$(curl -s "$URL")
+          echo "Contenido del curl:"
+          echo "$consulta"
